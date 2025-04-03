@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Veranstaltungslärm Prototyp</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Berechnung des Beurteilungspegels</h1>
+        <form id="laermForm">
+            <div class="form-group">
+                <label for="veranstaltungstyp">Veranstaltungstyp:</label>
+                <select id="veranstaltungstyp">
+                    <option value="nicht">Nicht störend</option>
+                    <option value="wenig">Wenig störend</option>
+                    <option value="stoerend">Störend</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="gebietsausweisung">Gebietsausweisung:</label>
+                <select id="gebietsausweisung">
+                    <option value="industrie">Industriegebiet</option>
+                    <option value="gewerbe">Gewerbegebiet</option>
+                    <option value="kern">Kern-, Dorf-, Mischgebiet</option>
+                    <option value="allgemein">Allgemeines Wohngebiet</option>
+                    <option value="rein">Reines Wohngebiet</option>
+                    <option value="kur">Kurgebiet</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="start">Veranstaltungsbeginn:</label>
+                <input type="datetime-local" id="start" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="ende">Veranstaltungsende:</label>
+                <input type="datetime-local" id="ende" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="laeq">Mittelungspegel L<sub>Aeq</sub> (dB):</label>
+                <input type="number" id="laeq" value="65" required>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="zuschlagImpulse">
+                    Zuschlag für Impulshaltigkeit (4 dB)
+                </label>
+            </div>
+            
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="zuschlagTon">
+                    Zuschlag für Ton/Informationshaltigkeit (3 dB)
+                </label>
+            </div>
+            
+            <!-- Hinweis: k_R (Tageszeiten) wird in diesem Prototypen noch nicht berücksichtigt -->
+            
+            <div class="form-group">
+                <label for="slider">Beurteilungszeit (Stunden):</label>
+                <input type="range" id="slider" min="1" max="16" value="16">
+                <span id="sliderValue">16</span> Stunden
+            </div>
+            
+            <button type="button" id="calculateButton">Berechnen</button>
+        </form>
+        
+        <div id="result">
+            <h2>Ergebnis</h2>
+            <p id="output">Bitte füllen Sie das Formular aus und klicken Sie auf "Berechnen".</p>
+        </div>
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
