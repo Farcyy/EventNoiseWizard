@@ -7,7 +7,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Berechnung des Beurteilungspegels</h1>
+        <h1>Erlaubter Messpegel für Veranstaltungslärm</h1>
         <form id="laermForm">
             <div class="form-group">
                 <label for="veranstaltungstyp">Veranstaltungstyp:</label>
@@ -41,11 +41,6 @@
             </div>
             
             <div class="form-group">
-                <label for="laeq">Mittelungspegel L<sub>Aeq</sub> (dB):</label>
-                <input type="number" id="laeq" value="65" required>
-            </div>
-            
-            <div class="form-group">
                 <label>
                     <input type="checkbox" id="zuschlagImpulse">
                     Zuschlag für Impulshaltigkeit (4 dB)
@@ -59,19 +54,12 @@
                 </label>
             </div>
             
-            <!-- Hinweis: k_R (Tageszeiten) wird in diesem Prototypen noch nicht berücksichtigt -->
-            
-            <div class="form-group">
-                <label for="slider">Beurteilungszeit (Stunden):</label>
-                <input type="range" id="slider" min="1" max="16" value="16">
-                <span id="sliderValue">16</span> Stunden
-            </div>
-            
             <button type="button" id="calculateButton">Berechnen</button>
         </form>
         
         <div id="result">
             <h2>Ergebnis</h2>
+            <div id="feedback"></div>
             <p id="output">Bitte füllen Sie das Formular aus und klicken Sie auf "Berechnen".</p>
         </div>
     </div>
